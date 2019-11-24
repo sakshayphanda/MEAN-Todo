@@ -1,0 +1,24 @@
+<form>
+  <div class="input-content">Title: <input type="text" (keyup)="titleValue=$event.target.value">
+  Content: <input type="text" (keyup)="contentValue=$event.target.value">
+  </div>
+
+  <div class="button-container">
+    <button  type="button" mat-stroked-button (click)="addingData()">Add new Item</button>
+    <button type="button" mat-stroked-button (click) ="fileInput.click()">File</button>
+    <button type="button" mat-stroked-button [routerLink] ="'/signin'">Login</button>
+  </div>
+  </form>
+
+  <input #fileInput class="file-button"  type="file" (change) ="imageFile($event)">
+
+  <div class="previewData">
+  <ul  style="width: 50%; display: flex; flex-direction: column">
+    <li *ngFor = "let post of postArray" (click) ="deletePost(post)">{{post.title}} : {{post.content}}</li>
+  </ul>
+  <div style="width: 50%;height: 20%; display: flex; justify-content: center" *ngIf="imagePreview">
+    <img style="width: 50%; height: 100%" [src] = "imagePreview">
+  </div>
+</div>
+
+  <!-- <mat-paginator></mat-paginator> -->
