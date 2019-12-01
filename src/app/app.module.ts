@@ -13,6 +13,9 @@ import { HomeComponent } from './home/home.component';
 import { DynamicComponent } from './home/dynamic/dynamic.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AuthInterceptor } from './services/auth-interceptor';
+import { SideNavigationComponent } from './home/side-navigation/side-navigation.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 const routes: Routes = [
   {
@@ -34,7 +37,8 @@ const routes: Routes = [
     LoginComponent,
     HomeComponent,
     DynamicComponent,
-    SignupComponent
+    SignupComponent,
+    SideNavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +49,7 @@ const routes: Routes = [
     MatCheckboxModule,
     MatInputModule,
     RouterModule.forRoot(routes),
+    MatExpansionModule
 
   ],
   providers: [LoginService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],

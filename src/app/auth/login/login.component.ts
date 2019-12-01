@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   password = '';
   email = '';
-  constructor(private http: HttpClient, 
+  constructor(private http: HttpClient,
     private loginService: LoginService) { }
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       response => {
         console.log(response);
         this.loginService.token = response['token'];
-        localStorage.setItem('token',JSON.stringify(response['token']));
+        localStorage.setItem('token',response['token']);
       }
     );
 

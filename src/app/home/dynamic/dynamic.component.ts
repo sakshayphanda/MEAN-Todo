@@ -39,7 +39,7 @@ export class DynamicComponent implements OnInit {
     this.http.post('http://localhost:3000/api/post/create', postData).subscribe(
       post => {
         this.fetchingData();
-        this.imageFile = undefined;
+        this.imageFile = null;
       }
     );
   }

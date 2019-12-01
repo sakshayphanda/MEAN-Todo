@@ -29,7 +29,7 @@ router.post('/create',CheckAuth,multer({storage: storage}).single('image'), (req
   });
  // console.log(request.body.title);
     post.save();
-    console.log(response);
+  //  console.log(response);
     response.status(201).json({message: 'Successfully created'});
 
 });

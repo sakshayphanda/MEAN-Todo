@@ -51,7 +51,7 @@ router.post('/login', (request, response, next) => {
           const token = jwt.sign({email: userCurrent.email, userId: userCurrent._id},
             'Sakshayphanda_this_stringshouldbelonger',
             {
-              expiresIn: '1h'
+              expiresIn: '5h'
             }
           );
 
