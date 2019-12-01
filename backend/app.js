@@ -9,9 +9,11 @@ const userRoutes = require('./routes/users'); // routes for CRUD on blog posts
 // const userRoutes = require('./routes/users');
 
 // connection is created using mongoose (an external library added)
-mongoose.connect('mongodb+srv://sakshay:LWksC9NcIVZf6hj5@cluster0-hszjh.mongodb.net/test?retryWrites=true',{ useUnifiedTopology: true, useNewUrlParser: true})
-.then(() => {
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useUnifiedTopology', true);
 
+mongoose.connect('mongodb+srv://sakshay:7lQ198jN3i3BirQH@cluster0-hszjh.mongodb.net/test?retryWrites=true&w=majority')
+.then(() => {
   console.log('Connected to the database');
 })
 .catch(err=> {
