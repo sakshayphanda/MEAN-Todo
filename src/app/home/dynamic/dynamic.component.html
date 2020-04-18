@@ -1,51 +1,43 @@
-<h1>Your Posts</h1>
+<h1 class="text">Your Posts</h1>
 
-  <div class="previewData">
-      <mat-accordion style="width: 50%;">
-          <mat-expansion-panel style=" margin: 20px 0px;">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                <input matInput placeholder="Title" (keyup)="titleValue=$event.target.value">
-              </mat-panel-title>
-                <mat-panel-description>
-                    <input matInput placeholder="Content" (keyup)="contentValue=$event.target.value">
-                  </mat-panel-description>
-              </mat-expansion-panel-header>
+<div class="previewData">
+  <mat-accordion style="width: 50%;">
+    <mat-expansion-panel style=" margin: 20px 0px;">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <input placeholder="Title" (keyup)="titleValue=$event.target.value">
+        </mat-panel-title>
+        <mat-panel-description>
+          <input placeholder="Content" (keyup)="contentValue=$event.target.value">
+        </mat-panel-description>
+      </mat-expansion-panel-header>
 
-              <input #fileInput class="file-button"  type="file" (change) ="imageFile($event)">
-              <button type="button" mat-stroked-button (click) ="fileInput.click()">Pick an Image</button>
-              <button  type="button" mat-stroked-button (click)="addingData()">Add</button>
-
-
-              <div style="width: 50%;height: 20%; display: flex; justify-content: center" *ngIf="imagePreview">
-                  <img style="width: 50%; height: 100%" [src] = "imagePreview">
-                </div>
+      <input #fileInput class="file-button" type="file" (change)="imageFile($event)">
+      <button type="button" mat-stroked-button (click)="fileInput.click()">Pick an Image</button>
+      <button type="button" mat-stroked-button (click)="addingData()">Add</button>
 
 
-            </mat-expansion-panel>
-          <mat-expansion-panel *ngFor = "let post of postArray">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                {{post.title}}
-              </mat-panel-title>
-              <mat-panel-description>
-                {{post.content}}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
+      <div style="width: 50%;height: 20%; display: flex; justify-content: center" *ngIf="imagePreview">
+        <img style="width: 50%; height: 100%" [src]="imagePreview">
+      </div>
 
-              <!-- <input matInput placeholder="First name"> -->
-              <div style="width: 50%;height: 20%; display: flex; justify-content: center">
-                  <img style="width: 50%; height: 100%" [src] = "post.imagePath">
-                </div>
 
-             <button mat-stroked-button (click) ="deletePost(post)">Delete Post</button>
-          </mat-expansion-panel>
+    </mat-expansion-panel>
+    <mat-expansion-panel *ngFor="let post of postArray">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <p class="text">{{post.title}}</p>
+        </mat-panel-title>
+        <mat-panel-description>
+          <p class="text">{{post.content}}</p>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
 
-        </mat-accordion>
-  <!-- <ol  style="width: 50%; display: flex; flex-direction: column">
-    <li *ngFor = "let post of postArray" (click) ="deletePost(post)">{{post.title}} : {{post.content}}</li>
-  </ol> -->
+      <div style="width: 50%;height: 20%; display: flex; justify-content: center">
+        <img style="width: 50%; height: 100%" [src]="post.imagePath">
+      </div>
 
+      <button mat-stroked-button (click)="deletePost(post)">Delete Post</button>
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>
-
-  <!-- <mat-paginator></mat-paginator> -->

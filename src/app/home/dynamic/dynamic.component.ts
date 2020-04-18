@@ -48,7 +48,6 @@ export class DynamicComponent implements OnInit {
     console.log([post]);
     this.http.delete('http://localhost:3000/api/post/delete/' + post['_id']).subscribe(
       response => {
-        console.log(response['message']);
         this.fetchingData();
       }
     );
