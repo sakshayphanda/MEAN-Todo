@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-dynamic',
@@ -24,7 +25,7 @@ export class DynamicComponent implements OnInit {
   }
 
   fetchingData() {
-    this.http.get('http://localhost:3000/api/post').subscribe(
+    this.http.get(environment.baseUrl + 'post').subscribe(
       post => {
         this.postArray = post;
         console.log(post);
@@ -36,7 +37,7 @@ export class DynamicComponent implements OnInit {
     postData.append('title', this.titleValue);
     postData.append('content', this.contentValue);
     postData.append('image', this.imgFile);
-    this.http.post('http://localhost:3000/api/post/create', postData).subscribe(
+    this.http.post(environment.baseUrl + 'post/create', postData).subscribe(
       post => {
         this.fetchingData();
         this.imageFile = null;
@@ -46,7 +47,7 @@ export class DynamicComponent implements OnInit {
 
   deletePost(post) {
     console.log([post]);
-    this.http.delete('http://localhost:3000/api/post/delete/' + post['_id']).subscribe(
+    this.http.delete(environment.baseUrl +  'post/delete/' + post['_id']).subscribe(
       response => {
         this.fetchingData();
       }

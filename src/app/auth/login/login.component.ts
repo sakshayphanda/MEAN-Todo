@@ -1,6 +1,7 @@
 import { LoginService } from './../../services/login.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   signIn() {
-    this.http.post('http://localhost:3000/api/user/login', {
+    this.http.post(environment.baseUrl + 'user/login', {
       email: this.email,
       password: this.password
     }).subscribe(

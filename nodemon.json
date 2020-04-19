@@ -1,0 +1,6 @@
+{
+  "env": {
+    "JWT_KEY": "Sakshayphanda_this_stringshouldbelonger",
+    "MongoDB_PW": "7lQ198jN3i3BirQH"
+  }
+}

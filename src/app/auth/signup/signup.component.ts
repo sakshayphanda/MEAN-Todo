@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-signup',
@@ -16,7 +17,7 @@ export class SignupComponent implements OnInit {
   }
 
   register() {
-    this.http.post('http://localhost:3000/api/user/signup', {
+    this.http.post(environment.baseUrl + 'user/signup', {
       email: this.email,
       password: this.password
     }).subscribe(
