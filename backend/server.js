@@ -1,7 +1,7 @@
 // imports
 const http = require("http");
 const debug = require("debug")("node-angular");
-const app = require("./backend/app");
+const app = require("./app");
 
 console.log('This is server.js');
 

@@ -22,7 +22,7 @@ mongoose.connect('mongodb+srv://sakshay:7lQ198jN3i3BirQH@cluster0-hszjh.mongodb.
 // parsing the incoming object into a JSON object
 app.use(bodyParser.json());
 // any request containing /images will be forwarded and allowed to fetch
-app.use('/images', express.static(path.join('backend/images')));
+app.use('/images', express.static(path.join('./images')));
 
 // dealing with the CORS errors (cross platform Resource sharing). when using 2 different port addresses at the same time
 app.use((request,response,next) => {
