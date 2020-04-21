@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://meantodo-env-1.eba-h2bfvpfu.ap-south-1.elasticbeanstalk.com/api/'
+  baseApiUrl: 'http://meantodo-env-1.eba-h2bfvpfu.ap-south-1.elasticbeanstalk.com/api/'
   // baseUrl: 'http://localhost:3000/api/'
 };
 

@@ -25,7 +25,7 @@ export class DynamicComponent implements OnInit {
   }
 
   fetchingData() {
-    this.http.get(environment.baseUrl + 'post').subscribe(
+    this.http.get(environment.baseApiUrl + 'post').subscribe(
       post => {
         this.postArray = post;
         console.log(post);
@@ -37,7 +37,7 @@ export class DynamicComponent implements OnInit {
     postData.append('title', this.titleValue);
     postData.append('content', this.contentValue);
     postData.append('image', this.imgFile);
-    this.http.post(environment.baseUrl + 'post/create', postData).subscribe(
+    this.http.post(environment.baseApiUrl + 'post/create', postData).subscribe(
       post => {
         this.fetchingData();
         this.imageFile = null;
@@ -47,7 +47,7 @@ export class DynamicComponent implements OnInit {
 
   deletePost(post) {
     console.log([post]);
-    this.http.delete(environment.baseUrl +  'post/delete/' + post['_id']).subscribe(
+    this.http.delete(environment.baseApiUrl +  'post/delete/' + post['_id']).subscribe(
       response => {
         this.fetchingData();
       }

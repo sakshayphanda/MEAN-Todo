@@ -1,10 +1,6 @@
-// imports
 const http = require("http");
 const debug = require("debug")("node-angular");
 const app = require("./app");
-
-console.log('This is server.js');
-
 const normalizePort = val => {
   var port = parseInt(val, 10);
 

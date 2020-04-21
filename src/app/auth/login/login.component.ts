@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   signIn() {
-    this.http.post(environment.baseUrl + 'user/login', {
+    this.http.post(environment.baseApiUrl + 'user/login', {
       email: this.email,
       password: this.password
     }).subscribe(

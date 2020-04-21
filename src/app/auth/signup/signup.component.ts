@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
   }
 
   register() {
-    this.http.post(environment.baseUrl + 'user/signup', {
+    this.http.post(environment.baseApiUrl + 'user/signup', {
       email: this.email,
       password: this.password
     }).subscribe(
