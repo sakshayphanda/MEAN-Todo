@@ -9,27 +9,25 @@ const MIME_TYPE_MAP ={
   'image/jpg': '.jpg'
 };
 const storage = multer.diskStorage({
-  destination: (request,file,cb) =>  {
-    cb(null, './images');
+  destination: (request,file,callback) =>  {
+    callback(null, './images');
   },
-  filename: (request,file,cb) =>  {
+  filename: (request,file,callback) =>  {
     const name = file.originalname.toLowerCase().split(' ').join('-');
     const ext = MIME_TYPE_MAP[file.mimetype];
 
-    cb(null, name);
+    callback(null, name);
   }
 });
 
 
-router.post('/create',CheckAuth,multer({storage: storage}).single('image'), (request, response, next) =>  {
+router.post('/create', CheckAuth, multer({storage: storage}).single('image'), (request, response, next) =>  {
   const post = new Post({
     title: request.body.title,
     content: request.body.content,
     imagePath: request.protocol + '://'+ request.get('host') + '/images/' + request.file.filename
   });
- // console.log(request.body.title);
     post.save();
-  //  console.log(response);
     response.status(201).json({message: 'Successfully created'});
 
 });
@@ -37,9 +35,7 @@ router.get('', (request, response, next) => {
     var postsData;
     Post.find().then(
       result=> {
-        console.log(result);
         postsData = result;
-
         response.status(200).json(postsData);
 
       }
