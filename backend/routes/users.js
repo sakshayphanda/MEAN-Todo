@@ -38,7 +38,7 @@ router.post('/login', (request, response, next) => {
     user => {
       userCurrent = user;
       if(!user) {
-        response.status(401).json({message: 'shuru me hi Failed'});
+        response.status(401).json({message: 'Invalid'});
       }
 
       bcrypt.compare(request.body.password, user.password)
