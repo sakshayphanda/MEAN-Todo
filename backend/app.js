@@ -10,7 +10,6 @@ const userRoutes = require('./routes/users'); // routes for CRUD on blog posts
 // connection is created using mongoose (an external library added)
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
-
 mongoose.connect('mongodb+srv://sakshay:'+ process.env.MongoDB_PW +'@cluster0-hszjh.mongodb.net/test?retryWrites=true&w=majority')
 .then(() => {
   console.log('Connected to the database');
@@ -33,7 +32,7 @@ app.use((request,response,next) => {
 });
 
 app.use('/api/post', postsRoutes);
- app.use('/api/user', userRoutes);
+app.use('/api/user', userRoutes);
 
 //to export the module so that it can be accessed from the server.js
 module.exports = app;

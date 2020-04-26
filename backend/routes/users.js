@@ -49,7 +49,7 @@ router.post('/login', (request, response, next) => {
           }
 
           const token = jwt.sign({email: userCurrent.email, userId: userCurrent._id},
-            'Sakshayphanda_this_stringshouldbelonger',
+            process.env.JWT_KEY,
             {
               expiresIn: '10h'
             }

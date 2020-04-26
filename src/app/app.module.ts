@@ -52,7 +52,8 @@ const routes: Routes = [
     MatExpansionModule
 
   ],
-  providers: [LoginService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+  providers: [LoginService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
